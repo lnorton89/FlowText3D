@@ -1,0 +1,3 @@
+# build intermediates (dist/FlowText3D.scr is committed so people can download it)
+dist/*.res
+*.o

@@ -1,0 +1,96 @@
+#include <windows.h>
+#include "resource.h"
+
+1 24 "flowtext3d.manifest"
+
+IDI_APP ICON "flowtext3d.ico"
+
+STRINGTABLE
+BEGIN
+    IDS_DESCRIPTION "Flow Text 3D"
+END
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "FileDescription", "Flow Text 3D"
+            VALUE "FileVersion", "1.0.0.0"
+            VALUE "InternalName", "flowtext3d"
+            VALUE "OriginalFilename", "FlowText3D.scr"
+            VALUE "ProductName", "Flow Text 3D Screensaver"
+            VALUE "ProductVersion", "1.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+IDD_CONFIG DIALOGEX 0, 0, 420, 294
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Flow Text 3D Settings"
+FONT 9, "Segoe UI", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Text", IDC_STATIC, 7, 4, 200, 68
+    AUTORADIOBUTTON "Text:", IDC_RADIO_TEXT, 15, 18, 40, 10, WS_GROUP | WS_TABSTOP
+    EDITTEXT        IDC_TEXT, 58, 16, 140, 13, ES_AUTOHSCROLL
+    AUTORADIOBUTTON "Clock (current time)", IDC_RADIO_CLOCK, 15, 34, 120, 10
+    PUSHBUTTON      "Font...", IDC_FONT, 15, 50, 44, 14, WS_GROUP
+    LTEXT           "", IDC_FONTNAME, 64, 53, 136, 10
+
+    GROUPBOX        "3D text", IDC_STATIC, 7, 76, 200, 122
+    LTEXT           "Rotation", IDC_STATIC, 15, 91, 44, 10
+    COMBOBOX        IDC_ROTATION, 64, 89, 134, 120, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Motion", IDC_STATIC, 15, 108, 44, 10
+    COMBOBOX        IDC_MOTION, 64, 106, 134, 120, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Surface", IDC_STATIC, 15, 125, 44, 10
+    COMBOBOX        IDC_SURFACE, 64, 123, 104, 120, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "", IDC_TEXTCOLOR, "Button", BS_OWNERDRAW | WS_TABSTOP, 172, 123, 26, 13
+    LTEXT           "Size", IDC_STATIC, 15, 143, 44, 10
+    CONTROL         "", IDC_TEXTSIZE, "msctls_trackbar32", TBS_HORZ | TBS_NOTICKS | TBS_BOTH | WS_TABSTOP, 60, 141, 142, 14
+    LTEXT           "Depth", IDC_STATIC, 15, 161, 44, 10
+    CONTROL         "", IDC_DEPTH, "msctls_trackbar32", TBS_HORZ | TBS_NOTICKS | TBS_BOTH | WS_TABSTOP, 60, 159, 142, 14
+    LTEXT           "Speed", IDC_STATIC, 15, 179, 44, 10
+    CONTROL         "", IDC_SPEED, "msctls_trackbar32", TBS_HORZ | TBS_NOTICKS | TBS_BOTH | WS_TABSTOP, 60, 177, 142, 14
+
+    GROUPBOX        "Display", IDC_STATIC, 7, 202, 200, 86
+    LTEXT           "Monitors", IDC_STATIC, 15, 217, 44, 10
+    COMBOBOX        IDC_MONITORS, 64, 215, 134, 120, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Quality", IDC_STATIC, 15, 234, 44, 10
+    COMBOBOX        IDC_QUALITY, 64, 232, 134, 120, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Edges", IDC_STATIC, 15, 251, 44, 10
+    COMBOBOX        IDC_AA, 64, 249, 134, 120, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Frame rate", IDC_STATIC, 15, 268, 44, 10
+    COMBOBOX        IDC_FPS, 64, 266, 134, 120, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    CONTROL         "", IDC_PREVIEWAREA, "Static", SS_BLACKRECT, 214, 8, 199, 112
+
+    GROUPBOX        "Background", IDC_STATIC, 214, 124, 199, 104
+    LTEXT           "Palette", IDC_STATIC, 222, 139, 42, 10
+    COMBOBOX        IDC_PALETTE, 268, 137, 137, 160, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Custom", IDC_STATIC, 222, 156, 42, 10
+    CONTROL         "", IDC_CUST1, "Button", BS_OWNERDRAW | WS_TABSTOP, 268, 154, 31, 13
+    CONTROL         "", IDC_CUST2, "Button", BS_OWNERDRAW | WS_TABSTOP, 303, 154, 31, 13
+    CONTROL         "", IDC_CUST3, "Button", BS_OWNERDRAW | WS_TABSTOP, 338, 154, 31, 13
+    CONTROL         "", IDC_CUST4, "Button", BS_OWNERDRAW | WS_TABSTOP, 373, 154, 32, 13
+    LTEXT           "Flow speed", IDC_STATIC, 222, 174, 42, 10
+    CONTROL         "", IDC_FLOW, "msctls_trackbar32", TBS_HORZ | TBS_NOTICKS | TBS_BOTH | WS_TABSTOP, 264, 172, 145, 14
+    LTEXT           "Swirl", IDC_STATIC, 222, 192, 42, 10
+    CONTROL         "", IDC_SWIRL, "msctls_trackbar32", TBS_HORZ | TBS_NOTICKS | TBS_BOTH | WS_TABSTOP, 264, 190, 145, 14
+    LTEXT           "Brightness", IDC_STATIC, 222, 210, 42, 10
+    CONTROL         "", IDC_BRIGHT, "msctls_trackbar32", TBS_HORZ | TBS_NOTICKS | TBS_BOTH | WS_TABSTOP, 264, 208, 145, 14
+
+    PUSHBUTTON      "Defaults", IDC_DEFAULTS, 214, 236, 60, 14
+    PUSHBUTTON      "Test full screen", IDC_TEST, 278, 236, 75, 14
+    LTEXT           "Flow Text 3D 1.0", IDC_STATIC, 214, 256, 120, 10, WS_DISABLED
+    DEFPUSHBUTTON   "OK", IDOK, 305, 272, 52, 15
+    PUSHBUTTON      "Cancel", IDCANCEL, 361, 272, 52, 15
+END
